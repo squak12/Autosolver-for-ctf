@@ -5,7 +5,7 @@ import requests as req
 import pprint
 import sys
 
-def post_engine():
+def engine():
   print(f"Welcome to the" + sys.argv[0] + ". This is a script to capture the flag quick!")
 
   try:
@@ -21,4 +21,4 @@ def post_engine():
   except:
      print("We ran into a issue!\neither not enough arguments or the ip is incorrect and couldn't connect to the target")
 
-post_engine()
+engine()
