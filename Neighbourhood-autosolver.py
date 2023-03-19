@@ -1,6 +1,6 @@
 #Made on Mar 19 2023
 #Created in python3
-#A easy script for very easy broken access control ctf on tryhackme(called the 'Neighbour')
+#A easy script for a very easy broken access control ctf on tryhackme(called the 'Neighbour')
 import requests as req
 import pprint
 import sys
