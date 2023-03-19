@@ -1,2 +1,2 @@
 # Autosolver-for-ctf
-automate solving ctf challenges through scripts
+automate solving ctf challenges through scripts.
