@@ -1,6 +1,6 @@
 #Made on Mar 20 2023
 #Created in python3
-#DOES NOT WORK. I WILL PICK IT WHEN I HAVE THE CHANCE
+#DOES NOT WORK. I WILL PICK IT UP WHEN I HAVE THE CHANCE
 #'Chill Hack' on tryhackme
 
 import requests as req
