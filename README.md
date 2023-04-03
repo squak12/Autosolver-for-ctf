@@ -8,3 +8,4 @@ This repo is obviously going to contain spoilers for ctf challenges and the goal
 **Updates will be made and met mostly on weekends** 
 
 .An empty function has been made to retrive the flag on the ftp server. I've been fighting with pip to as of why its not importing the ftplib library.
+.This will be my last update until i make major progress.
