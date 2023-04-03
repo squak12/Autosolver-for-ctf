@@ -14,7 +14,11 @@ from subprocess import run
 tar_ip = sys.argv[1] #target IP
 sess = req.Session()
 
-#First flag is on the ftp server but i went ahead without it(sorry). So now its a TODO for lator
+def Mino_ftp_engine()
+
+#Import ftplib for this function or atleast try to.
+    
+Mino_ftp_engine()
 
 def Mino_web_engine_login(): #Not going to cover the sql bit as i dont think its necessary and its time consuming to get a response back. I might add a seperate script to the repo that will take care of it
     url_L = f'http://{tar_ip}/login.php'
