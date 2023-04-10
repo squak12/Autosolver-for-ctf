@@ -23,7 +23,10 @@ def Mino_ftp_engine():
          conn.cwd('/pub/.secret')
 
          conn.retrbinary("RETR " + fn, open(fn, 'wb').write)
-         print('check the home directory for the flag') #Automate this part
+          with open('flag.txt', 'r') as fp:
+              open_f = fp.read()
+              print("First flag: ", open_f)
+              fp.close()
          conn.quit()
 
 Mino_ftp_engine()
@@ -35,6 +38,6 @@ def Mino_web_engine_login():
     soup = BeautifulSoup(res.content, "html.parser")
 
     fetch_href_flag = soup.find_all("a")
-    print(fetch_href_flag)
+    print("Second flag", fetch_href_flag)
 
 Mino_web_engine_login()
