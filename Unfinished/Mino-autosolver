@@ -5,7 +5,6 @@
 #Testing phase
 import requests as req
 import sys
-import pprint
 import socket
 import os
 from bs4 import BeautifulSoup
@@ -38,6 +37,6 @@ def Mino_web_engine_login():
     soup = BeautifulSoup(res.content, "html.parser")
 
     fetch_href_flag = soup.find_all("a")
-    print("Second flag", fetch_href_flag)
+    pprint.pprint("Second flag", fetch_href_flag)
 
 Mino_web_engine_login()
