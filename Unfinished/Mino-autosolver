@@ -41,7 +41,7 @@ def Mino_web_engine_login():
     soup = BeautifulSoup(res.content, "html.parser")
 
     fetch_href_flag = soup.find_all("a")
-    pprint.pprint("Second flag", fetch_href_flag)
+    print("Second flag", fetch_href_flag)
 
 Mino_web_engine_login()
 
