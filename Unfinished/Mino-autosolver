@@ -55,7 +55,7 @@ Mino_shell_S()         \
 Mino_shell_C():        /
     
     with socket.socket(AF_INET, SOCK_STREAM) as s:
-         s.connect(Host, Port)
+         s.connect((tar_ip, Port))
          s.listen(1)
          conn, addr = s.accept()
             
