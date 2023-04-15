@@ -12,8 +12,8 @@ from subprocess import run
 from ftplib import FTP
 
 tar_ip = sys.argv[1] #target IP
-Host = sys.argv[2] #local IP (your ip)
-Port = sys.argv[3] #port 
+#Host = sys.argv[2] #local IP (your ip)
+#Port = sys.argv[3] #port 
 sess = req.Session()
 
 #Needs 'Try' and 'except'
