@@ -45,13 +45,7 @@ def Mino_web_engine_login():
 
 Mino_web_engine_login()
 
-'''
-Mino_shell_S(): 
-  
-   #start here
-
-Mino_shell_S()         \
-                         ---- Both are partially done. One needs something in it while the other needs to be tested
+'''                               ---- Client is only needed i believe. 
 Mino_shell_C():        /
     
     with socket.socket(AF_INET, SOCK_STREAM) as s:
