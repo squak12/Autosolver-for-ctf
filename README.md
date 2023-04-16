@@ -7,6 +7,6 @@ This repo is obviously going to contain spoilers for ctf challenges and the goal
 ## Future updates (4/16/23)
 **Updates will be made and met mostly on weekends** 
 
-.MinoSolver is likely staying as is. It will retrive two flags but thats it due to absent knowledge with getting reverse shell working. 
+.MinoSolver is likely staying as is. It will retrive two flags but thats it due to absent knowledge with getting reverse shell working. However mino-sqli would be continued. 
 
 .Next weekend will split folders into different ctf platforms, such as the following 'HackTheBox' 'Tryhackme' 'PicoCTF'
